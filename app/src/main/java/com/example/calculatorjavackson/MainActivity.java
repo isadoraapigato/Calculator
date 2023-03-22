@@ -1,14 +1,21 @@
-package com.example.calculatorjavackson;
+ package com.example.calculatorjavackson;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.View;
+import android.view.ViewGroup;
 
-public class MainActivity extends AppCompatActivity {
+ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
     }
-}
+
+     @Override
+     public void addContentView(View view, ViewGroup.LayoutParams params) {
+         super.addContentView(view, params);
+     }
+ }

@@ -1,69 +1,55 @@
- package com.example.calculatorjavackson;
+package com.example.calculatorjavackson;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.EditText;
+import android.widget.TextView;
 
 
- public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity {
+    EditText valor1, valor2;
+    TextView resultado;
 
-     @Override
-     protected void onCreate(Bundle savedInstanceState) {
-         super.onCreate(savedInstanceState);
-         setContentView(R.layout.activity_main);
-         getSupportActionBar().hide();
-         horai = findViewById(R.id.horai);
-         minutoi = findViewById(R.id.minutoi);
-         horaf = findViewById(R.id.horaf);
-         minutof = findViewById(R.id.minutof);
-         resultadohora = findViewById(R.id.resultadohora);
-         resultadominuto = findViewById(R.id.resultadominuto);
-     }
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        getSupportActionBar().hide();
+        valor1 = findViewById(R.id.valor1);
+        valor2 = findViewById(R.id.valor2);
+        resultado = findViewById(R.id.resultadoconta);
+    }
 
-     public void Soma(View view) {
-         int hini = Integer.parseInt(horai.getText().toString());
-         int mini = Integer.parseInt(minutoi.getText().toString());
-         int hfin = Integer.parseInt(horaf.getText().toString());
-         int mfin = Integer.parseInt(minutof.getText().toString());
-         int resultadoh = hini + hfin;
-         int resultadom = mini + mfin;
+    public void soma(View view) {
+        int valori = Integer.parseInt(valor1.getText().toString());
+        int valorii = Integer.parseInt(valor2.getText().toString());
+        int resultadoc = valori + valorii;
+        resultado.setText(resultadoc + "");
+    }
 
-         while (resultadom > 59) {
-             resultadom -= 60;
-             resultadoh++;
-         }
-         resultadohora.setText(resultadoh + "");
-         resultadominuto.setText((resultadom + ""));
-     }
+    public void subtracao(View view) {
+        int valori = Integer.parseInt(valor1.getText().toString());
+        int valorii = Integer.parseInt(valor2.getText().toString());
+        int resultadoc = valori + valorii;
+        resultado.setText(resultadoc + "");
+    }
 
-     public void Subtracao(View view) {
-         int hini = Integer.parseInt(horai.getText().toString());
-         int mini = Integer.parseInt(minutoi.getText().toString());
-         int hfin = Integer.parseInt(horaf.getText().toString());
-         int mfin = Integer.parseInt(minutof.getText().toString());
-         while (hini > 0){
-             hini --;
-             mini += 60;
-         }
-         while (hfin >0){
-             hfin --;
-             mfin += 60;
-         }
-         int resultadoh = 0;
-         int resultadom = mini - mfin;
-         if (mfin> mini){
-             resultadom = mfin - mini;
-         }
-         while ( resultadom > 59) {
-             resultadom -= 60;
-             resultadoh ++;
-         }
+    public void divisao(View view) {
+        int valori = Integer.parseInt(valor1.getText().toString());
+        int valorii = Integer.parseInt(valor2.getText().toString());
+        float resultadoc = valori / valorii;
+        resultado.setText(resultadoc + "");
+    }
 
-         resultadohora.setText(resultadoh + "");
-         resultadominuto.setText((resultadom + ""));
-     }
- }
+    public void multiplicacao(View view) {
+        int valori = Integer.parseInt(valor1.getText().toString());
+        int valorii = Integer.parseInt(valor2.getText().toString());
+        int resultadoc = valori * valorii;
+        resultado.setText(resultadoc + "");
+    }
+
+}
 
 
- }
